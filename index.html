@@ -2,124 +2,167 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta
       name="description"
-      content="Selby Unique School – Ghana. Offering quality GES-aligned education from Crèche to Junior High School. Motto: Christ Our Redeemer."
+      content="Selby Unique School – Ghana. Quality GES-aligned education from Crèche to JHS. Motto: Christ Our Redeemer."
     />
     <title>Selby Unique School – Ghana | Home</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>"
     />
   </head>
   <body>
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar" id="navbar">
+    <!-- ═══════════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-          <div class="logo-icon">S</div>
+        <a
+          href="index.html"
+          class="nav-logo"
+          aria-label="Selby Unique School – home"
+        >
+          <div class="logo-icon" aria-hidden="true">S</div>
           <div class="logo-text">
             <span class="school-name">Selby Unique School</span>
             <span class="school-tag">Ghana</span>
           </div>
         </a>
-        <button class="hamburger" aria-label="Toggle menu" id="hamburger">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links" id="navLinks">
+
+        <!-- Desktop links (hidden on mobile via CSS) -->
+        <div class="nav-links">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="academics.html">Academics</a>
-          <a href="admissions.html">Admissions</a>
+          <a href="admission.html">Admissions</a>
           <a href="gallery.html">Gallery</a>
           <a href="contact.html">Contact</a>
-          <a href="admissions.html" class="btn btn-primary">Apply Now</a>
+          <a href="admission.html" class="btn btn-primary">Apply Now</a>
         </div>
+
+        <!-- Hamburger (visible on mobile) -->
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
+    <!-- Mobile drawer -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html">ℹ️ About</a>
+      <a href="academics.html">📚 Academics</a>
+      <a href="admission.html">📋 Admissions</a>
+      <a href="gallery.html">🖼️ Gallery</a>
+      <a href="contact.html">📞 Contact</a>
+      <a href="admission.html" class="mob-apply">📋 Apply Now</a>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════ -->
     <section class="hero" id="home">
-      <div class="hero-bg-pattern"></div>
-      <div class="hero-circle-1"></div>
-      <div class="hero-circle-2"></div>
+      <div class="hero-bg-pattern" aria-hidden="true"></div>
+      <div class="hero-circle-1" aria-hidden="true"></div>
+      <div class="hero-circle-2" aria-hidden="true"></div>
+
       <div class="container">
         <div class="hero-content">
           <div class="hero-badge">Ghana Education Service (GES) Curriculum</div>
+
           <h1 class="hero-title">
             Welcome to<br />
             <span class="highlight">Selby Unique School</span>
           </h1>
+
           <p class="hero-motto">✦ "Christ Our Redeemer" ✦</p>
+
           <p class="hero-desc">
-            Providing world-class, GES-aligned education for children in Ghana —
+            Providing quality, GES-aligned education for children in Ghana —
             from Crèche to Junior High School. We nurture bright minds, strong
             character, and lifelong learners.
           </p>
+
           <div class="hero-buttons">
-            <a href="admissions.html" class="btn btn-primary">📋 Apply Now</a>
+            <a href="admission.html" class="btn btn-primary">📋 Apply Now</a>
             <a href="about.html" class="btn btn-outline">Learn More →</a>
           </div>
+
           <div class="hero-stats">
-            <div>
-              <div class="hero-stat-num" data-count="500" data-suffix="+">
-                500+
-              </div>
-              <div class="hero-stat-label">Students Enrolled</div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-count="500" data-suffix="+"
+                >500+</span
+              >
+              <span class="hero-stat-label">Students Enrolled</span>
             </div>
-            <div>
-              <div class="hero-stat-num" data-count="30" data-suffix="+">
-                30+
-              </div>
-              <div class="hero-stat-label">Qualified Teachers</div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-count="30" data-suffix="+"
+                >30+</span
+              >
+              <span class="hero-stat-label">Qualified Teachers</span>
             </div>
-            <div>
-              <div class="hero-stat-num" data-count="15" data-suffix="+">
-                15+
-              </div>
-              <div class="hero-stat-label">Years of Excellence</div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-count="15" data-suffix="+"
+                >15+</span
+              >
+              <span class="hero-stat-label">Years of Excellence</span>
             </div>
-            <div>
-              <div class="hero-stat-num" data-count="4">4</div>
-              <div class="hero-stat-label">Academic Levels</div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" data-count="4">4</span>
+              <span class="hero-stat-label">Academic Levels</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== LEVELS STRIP ===== -->
+    <!-- ═══════════════════════════════════════════════════════
+     LEVELS STRIP
+     ═══════════════════════════════════════════════════════ -->
     <div class="levels-strip">
       <div class="container">
-        <a href="academics.html#creche" class="level-pill">
-          <span class="pill-emoji">🍼</span> Crèche
-        </a>
-        <a href="academics.html#kg" class="level-pill">
-          <span class="pill-emoji">🌱</span> Kindergarten
-        </a>
-        <a href="academics.html#primary" class="level-pill">
-          <span class="pill-emoji">📚</span> Primary School
-        </a>
-        <a href="academics.html#jhs" class="level-pill">
-          <span class="pill-emoji">🎓</span> Junior High School
-        </a>
+        <a href="academics.html#creche" class="level-pill"
+          ><span class="pill-emoji">🍼</span> Crèche</a
+        >
+        <a href="academics.html#kg" class="level-pill"
+          ><span class="pill-emoji">🌱</span> Kindergarten</a
+        >
+        <a href="academics.html#primary" class="level-pill"
+          ><span class="pill-emoji">📚</span> Primary School</a
+        >
+        <a href="academics.html#jhs" class="level-pill"
+          ><span class="pill-emoji">🎓</span> Junior High School</a
+        >
       </div>
     </div>
 
-    <!-- ===== ABOUT (Home) ===== -->
+    <!-- ═══════════════════════════════════════════════════════
+     ABOUT  (home preview)
+     ═══════════════════════════════════════════════════════ -->
     <section>
       <div class="container">
         <div class="about-home">
-          <div class="about-img-wrap">
-            <div class="about-img-box">🏫</div>
+          <div class="about-img-wrap fade-in">
+            <div class="about-img-box" aria-hidden="true">🏫</div>
             <div class="about-badge-float">
               <span class="num">A+</span>
               <span class="lbl">Academic Standard</span>
             </div>
           </div>
-          <div class="about-text">
+
+          <div class="fade-in">
             <span class="section-label">Who We Are</span>
             <h2 class="section-title">A School Where Every Child Thrives</h2>
             <p>
@@ -128,14 +171,17 @@
               with the Ghana Education Service (GES) curriculum. We believe
               every child deserves the best start in life.
             </p>
-            <ul class="check-list" style="margin-top: 20px">
+            <ul class="check-list">
               <li>GES-approved curriculum from Crèche to JHS</li>
               <li>Experienced and qualified teaching staff</li>
               <li>Safe, child-friendly learning environment</li>
               <li>Emphasis on discipline, values, and academic excellence</li>
               <li>Active parent and community engagement</li>
             </ul>
-            <a href="about.html" class="btn btn-navy" style="margin-top: 24px"
+            <a
+              href="about.html"
+              class="btn btn-navy"
+              style="margin-top: 1.25rem"
               >Our Full Story →</a
             >
           </div>
@@ -143,7 +189,9 @@
       </div>
     </section>
 
-    <!-- ===== WHY CHOOSE US ===== -->
+    <!-- ═══════════════════════════════════════════════════════
+     WHY CHOOSE US
+     ═══════════════════════════════════════════════════════ -->
     <section class="features-section">
       <div class="container">
         <div class="text-center">
@@ -154,8 +202,8 @@
             exciting, purposeful, and tailored to every child's potential.
           </p>
         </div>
-        <div class="grid-3">
-          <div class="feature-card">
+        <div class="grid grid-3">
+          <div class="feature-card fade-in">
             <span class="feature-icon">📖</span>
             <h3>GES Curriculum</h3>
             <p>
@@ -164,15 +212,15 @@
               beyond.
             </p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card fade-in">
             <span class="feature-icon">👩‍🏫</span>
             <h3>Qualified Teachers</h3>
             <p>
-              Every teacher at Selby Unique School is trained, certified, and
-              passionate about helping children grow and succeed.
+              Every teacher is trained, certified, and passionate about helping
+              children grow and succeed.
             </p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card fade-in">
             <span class="feature-icon">🌍</span>
             <h3>Holistic Development</h3>
             <p>
@@ -180,7 +228,7 @@
               creativity, physical activity, and moral values.
             </p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card fade-in">
             <span class="feature-icon">🛡️</span>
             <h3>Safe Environment</h3>
             <p>
@@ -188,7 +236,7 @@
               clean, and welcoming campus for all learners.
             </p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card fade-in">
             <span class="feature-icon">🤝</span>
             <h3>Community Partnership</h3>
             <p>
@@ -196,7 +244,7 @@
               strong support system for every student.
             </p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card fade-in">
             <span class="feature-icon">🏆</span>
             <h3>Proven Results</h3>
             <p>
@@ -208,7 +256,9 @@
       </div>
     </section>
 
-    <!-- ===== ACADEMIC LEVELS PREVIEW ===== -->
+    <!-- ═══════════════════════════════════════════════════════
+     ACADEMIC LEVELS  (preview cards)
+     ═══════════════════════════════════════════════════════ -->
     <section>
       <div class="container">
         <div class="text-center">
@@ -219,15 +269,16 @@
             secondary school, we are with them every step of the way.
           </p>
         </div>
-        <div class="grid-4">
-          <div class="card">
+        <div class="grid grid-4">
+          <div class="card fade-in">
             <div
               style="
                 background: linear-gradient(135deg, #e84393, #c7006b);
-                padding: 24px;
+                padding: 1.5rem;
                 text-align: center;
-                font-size: 2.5rem;
+                font-size: 2.25rem;
               "
+              aria-hidden="true"
             >
               🍼
             </div>
@@ -241,23 +292,24 @@
                 href="academics.html#creche"
                 style="
                   display: inline-block;
-                  margin-top: 14px;
-                  color: #d4a017;
+                  margin-top: 1rem;
+                  color: var(--gold);
                   font-weight: 600;
-                  font-size: 0.88rem;
+                  font-size: 0.85rem;
                 "
                 >Learn More →</a
               >
             </div>
           </div>
-          <div class="card">
+          <div class="card fade-in">
             <div
               style="
                 background: linear-gradient(135deg, #7c3aed, #5b21b6);
-                padding: 24px;
+                padding: 1.5rem;
                 text-align: center;
-                font-size: 2.5rem;
+                font-size: 2.25rem;
               "
+              aria-hidden="true"
             >
               🌱
             </div>
@@ -271,23 +323,24 @@
                 href="academics.html#kg"
                 style="
                   display: inline-block;
-                  margin-top: 14px;
-                  color: #d4a017;
+                  margin-top: 1rem;
+                  color: var(--gold);
                   font-weight: 600;
-                  font-size: 0.88rem;
+                  font-size: 0.85rem;
                 "
                 >Learn More →</a
               >
             </div>
           </div>
-          <div class="card">
+          <div class="card fade-in">
             <div
               style="
                 background: linear-gradient(135deg, #0b2545, #13406b);
-                padding: 24px;
+                padding: 1.5rem;
                 text-align: center;
-                font-size: 2.5rem;
+                font-size: 2.25rem;
               "
+              aria-hidden="true"
             >
               📚
             </div>
@@ -301,23 +354,24 @@
                 href="academics.html#primary"
                 style="
                   display: inline-block;
-                  margin-top: 14px;
-                  color: #d4a017;
+                  margin-top: 1rem;
+                  color: var(--gold);
                   font-weight: 600;
-                  font-size: 0.88rem;
+                  font-size: 0.85rem;
                 "
                 >Learn More →</a
               >
             </div>
           </div>
-          <div class="card">
+          <div class="card fade-in">
             <div
               style="
                 background: linear-gradient(135deg, #d4a017, #a0760f);
-                padding: 24px;
+                padding: 1.5rem;
                 text-align: center;
-                font-size: 2.5rem;
+                font-size: 2.25rem;
               "
+              aria-hidden="true"
             >
               🎓
             </div>
@@ -331,10 +385,10 @@
                 href="academics.html#jhs"
                 style="
                   display: inline-block;
-                  margin-top: 14px;
-                  color: #d4a017;
+                  margin-top: 1rem;
+                  color: var(--gold);
                   font-weight: 600;
-                  font-size: 0.88rem;
+                  font-size: 0.85rem;
                 "
                 >Learn More →</a
               >
@@ -344,147 +398,58 @@
       </div>
     </section>
 
-    <!-- ===== TESTIMONIALS ===== -->
+    <!-- ═══════════════════════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════════════════════ -->
     <section class="bg-offwhite">
       <div class="container">
         <div class="text-center">
           <span class="section-label">What Parents Say</span>
           <h2 class="section-title">Trusted by Families Across Ghana</h2>
         </div>
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-body">
-              <div
-                style="color: #d4a017; font-size: 1.2rem; margin-bottom: 12px"
-              >
-                ★★★★★
-              </div>
-              <p
-                style="font-style: italic; margin-bottom: 16px; color: #374151"
-              >
-                "My daughter has grown so much since joining Selby Unique
-                School. The teachers are caring and the environment is safe and
-                encouraging."
-              </p>
-              <div style="display: flex; align-items: center; gap: 10px">
-                <div
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    background: var(--navy);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: var(--gold);
-                    font-weight: 700;
-                  "
-                >
-                  A
-                </div>
-                <div>
-                  <strong
-                    style="
-                      color: var(--navy);
-                      font-size: 0.9rem;
-                      display: block;
-                    "
-                    >Abena Mensah</strong
-                  >
-                  <span style="font-size: 0.78rem; color: var(--gray)"
-                    >Parent – Primary 4</span
-                  >
-                </div>
+        <div class="grid grid-3">
+          <div class="t-card fade-in">
+            <div class="t-stars" aria-label="5 stars">★★★★★</div>
+            <p class="t-quote">
+              "My daughter has grown so much since joining Selby Unique School.
+              The teachers are caring and the environment is safe and
+              encouraging."
+            </p>
+            <div class="t-author">
+              <div class="t-avatar" aria-hidden="true">A</div>
+              <div>
+                <span class="t-name">Abena Mensah</span>
+                <span class="t-role">Parent – Primary 4</span>
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <div
-                style="color: #d4a017; font-size: 1.2rem; margin-bottom: 12px"
-              >
-                ★★★★★
-              </div>
-              <p
-                style="font-style: italic; margin-bottom: 16px; color: #374151"
-              >
-                "The school follows the GES curriculum perfectly. My son passed
-                his BECE with excellent grades. We are very proud and thankful!"
-              </p>
-              <div style="display: flex; align-items: center; gap: 10px">
-                <div
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    background: var(--navy);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: var(--gold);
-                    font-weight: 700;
-                  "
-                >
-                  K
-                </div>
-                <div>
-                  <strong
-                    style="
-                      color: var(--navy);
-                      font-size: 0.9rem;
-                      display: block;
-                    "
-                    >Kwame Asante</strong
-                  >
-                  <span style="font-size: 0.78rem; color: var(--gray)"
-                    >Parent – JHS Graduate</span
-                  >
-                </div>
+
+          <div class="t-card fade-in">
+            <div class="t-stars" aria-label="5 stars">★★★★★</div>
+            <p class="t-quote">
+              "The school follows the GES curriculum perfectly. My son passed
+              his BECE with excellent grades. We are very proud and thankful!"
+            </p>
+            <div class="t-author">
+              <div class="t-avatar" aria-hidden="true">K</div>
+              <div>
+                <span class="t-name">Kwame Asante</span>
+                <span class="t-role">Parent – JHS Graduate</span>
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-body">
-              <div
-                style="color: #d4a017; font-size: 1.2rem; margin-bottom: 12px"
-              >
-                ★★★★★
-              </div>
-              <p
-                style="font-style: italic; margin-bottom: 16px; color: #374151"
-              >
-                "From the crèche to primary school, Selby has been amazing. The
-                staff are professional and always communicate with parents."
-              </p>
-              <div style="display: flex; align-items: center; gap: 10px">
-                <div
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    background: var(--navy);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: var(--gold);
-                    font-weight: 700;
-                  "
-                >
-                  E
-                </div>
-                <div>
-                  <strong
-                    style="
-                      color: var(--navy);
-                      font-size: 0.9rem;
-                      display: block;
-                    "
-                    >Efua Boateng</strong
-                  >
-                  <span style="font-size: 0.78rem; color: var(--gray)"
-                    >Parent – Crèche & Primary</span
-                  >
-                </div>
+
+          <div class="t-card fade-in">
+            <div class="t-stars" aria-label="5 stars">★★★★★</div>
+            <p class="t-quote">
+              "From the crèche to primary school, Selby has been amazing. The
+              staff are professional and always communicate with parents."
+            </p>
+            <div class="t-author">
+              <div class="t-avatar" aria-hidden="true">E</div>
+              <div>
+                <span class="t-name">Efua Boateng</span>
+                <span class="t-role">Parent – Crèche &amp; Primary</span>
               </div>
             </div>
           </div>
@@ -492,10 +457,12 @@
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
+    <!-- ═══════════════════════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════════════════════ -->
     <section class="cta-section">
       <div class="container">
-        <span class="section-label" style="color: var(--navy); opacity: 0.6"
+        <span class="section-label" style="color: rgba(11, 37, 69, 0.5)"
           >Join Our School Family</span
         >
         <h2>Ready to Enrol Your Child?</h2>
@@ -504,60 +471,55 @@
           in Ghana. Apply today or contact us for more information.
         </p>
         <div class="cta-buttons">
-          <a href="admissions.html" class="btn btn-navy">📋 Apply Now</a>
-          <a
-            href="contact.html"
-            class="btn"
-            style="border: 2px solid var(--navy); color: var(--navy)"
-            >📞 Contact Us</a
-          >
+          <a href="admission.html" class="btn btn-navy">📋 Apply Now</a>
+          <a href="contact.html" class="btn btn-dark-outline">📞 Contact Us</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ═══════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════ -->
     <footer>
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <div class="nav-logo">
-              <div class="logo-icon">S</div>
+            <a
+              href="index.html"
+              class="nav-logo"
+              style="margin-bottom: 0.75rem; display: inline-flex"
+              aria-label="Selby Unique School home"
+            >
+              <div class="logo-icon" aria-hidden="true">S</div>
               <div class="logo-text">
                 <span class="school-name">Selby Unique School</span>
                 <span class="school-tag">Ghana</span>
               </div>
-            </div>
+            </a>
             <p class="footer-desc">
               Delivering quality GES-aligned education from Crèche to Junior
-              High School. Shaping Ghana's next generation of leaders and
-              innovators.
+              High School. Shaping Ghana's next generation of leaders.
             </p>
-            <p
-              style="
-                font-size: 0.82rem;
-                color: rgba(255, 255, 255, 0.35);
-                font-style: italic;
-              "
-            >
-              Motto: "Christ Our Redeemer"
-            </p>
+            <p class="footer-motto">Motto: "Christ Our Redeemer"</p>
             <div class="footer-social">
               <a href="#" class="social-btn" aria-label="Facebook">📘</a>
               <a href="#" class="social-btn" aria-label="WhatsApp">💬</a>
               <a href="#" class="social-btn" aria-label="Instagram">📸</a>
             </div>
           </div>
+
           <div class="footer-col">
             <h5>Quick Links</h5>
             <ul>
               <li><a href="index.html">🏠 Home</a></li>
               <li><a href="about.html">ℹ️ About Us</a></li>
               <li><a href="academics.html">📚 Academics</a></li>
-              <li><a href="admissions.html">📋 Admissions</a></li>
+              <li><a href="admission.html">📋 Admissions</a></li>
               <li><a href="gallery.html">🖼️ Gallery</a></li>
               <li><a href="contact.html">📞 Contact</a></li>
             </ul>
           </div>
+
           <div class="footer-col">
             <h5>Academic Levels</h5>
             <ul>
@@ -567,19 +529,20 @@
               <li><a href="academics.html#jhs">🎓 Junior High School</a></li>
             </ul>
           </div>
+
           <div class="footer-col">
             <h5>Contact Info</h5>
             <div class="contact-line">
               <span class="ci">📍</span
-              ><span>Ghana (Contact us for full address)</span>
+              ><span>Ghana (contact us for address)</span>
             </div>
             <div class="contact-line">
-              <span class="ci">📞</span
-              ><span><a href="tel:+233000000000">+233 000 000 000</a></span>
+              <span class="ci">📞</span>
+              <span><a href="tel:+233000000000">+233 000 000 000</a></span>
             </div>
             <div class="contact-line">
-              <span class="ci">📧</span
-              ><span
+              <span class="ci">📧</span>
+              <span
                 ><a href="mailto:info@selbyuniqueschool.edu.gh"
                   >info@selbyuniqueschool.edu.gh</a
                 ></span
@@ -591,17 +554,14 @@
             </div>
           </div>
         </div>
+
         <div class="footer-bottom">
           <span>© 2025 Selby Unique School, Ghana. All rights reserved.</span>
-          <span
-            >Powered by <a href="#">GES Curriculum</a> | Designed with ❤️ for
-            Ghana</span
-          >
+          <span>Designed with ❤️ for Ghana</span>
         </div>
       </div>
     </footer>
 
-    <!-- Scroll to top -->
     <button id="scrollTop" aria-label="Scroll to top">↑</button>
 
     <script src="script.js"></script>

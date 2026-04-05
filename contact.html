@@ -1,199 +1,150 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Contact Selby Unique School, Ghana. Reach us by phone, email, or use our contact form. We're happy to answer all your questions."
-    />
-    <title>Contact Us – Selby Unique School</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>"
-    />
-  </head>
-  <body>
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-          <div class="logo-icon">S</div>
-          <div class="logo-text">
-            <span class="school-name">Selby Unique School</span>
-            <span class="school-tag">Ghana</span>
-          </div>
-        </a>
-        <button class="hamburger" aria-label="Toggle menu" id="hamburger">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links" id="navLinks">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="academics.html">Academics</a>
-          <a href="admissions.html">Admissions</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="contact.html">Contact</a>
-          <a href="admissions.html" class="btn btn-primary">Apply Now</a>
-        </div>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Contact Selby Unique School, Ghana. Reach us by phone, email, or use our contact form. We're happy to answer all your questions." />
+  <title>Contact Us – Selby Unique School</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>" />
+</head>
+<body>
 
-    <!-- ===== PAGE HERO ===== -->
-    <div class="page-hero">
-      <div class="container">
-        <div class="breadcrumb">
-          <a href="index.html">Home</a>
-          <span>/</span>
-          <span>Contact</span>
-        </div>
-        <h1>Contact Us</h1>
-        <p>
-          We're here to help. Reach out to us anytime — we respond within 1
-          working day.
-        </p>
+<!-- ═══════════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <a href="index.html" class="nav-logo" aria-label="Selby Unique School – home">
+      <div class="logo-icon" aria-hidden="true">S</div>
+      <div class="logo-text">
+        <span class="school-name">Selby Unique School</span>
+        <span class="school-tag">Ghana</span>
       </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admission.html">Admissions</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="admission.html" class="btn btn-primary">Apply Now</a>
     </div>
 
-    <!-- ===== CONTACT SECTION ===== -->
-    <section class="bg-offwhite">
-      <div class="container">
-        <div class="contact-grid">
-          <!-- Left: Contact Info -->
-          <div>
-            <span class="section-label">Get In Touch</span>
-            <h2
-              class="section-title"
-              style="font-size: 2rem; margin-bottom: 12px"
-            >
-              We'd Love to Hear From You
-            </h2>
-            <p style="margin-bottom: 32px">
-              Whether you have a question about admissions, school fees,
-              curriculum, or just want to schedule a visit — our team is ready
-              to help.
-            </p>
+    <button class="hamburger" id="hamburger"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
 
-            <div class="contact-info">
-              <div class="contact-card">
-                <div class="contact-card-icon">📞</div>
-                <div>
-                  <h4>Phone / WhatsApp</h4>
-                  <a href="tel:+233000000000">+233 000 000 000</a><br />
-                  <a href="tel:+233000000001">+233 000 000 001</a>
-                  <p style="margin-top: 4px; font-size: 0.8rem">
-                    Mon – Fri: 7:00 AM – 4:00 PM
-                  </p>
-                </div>
-              </div>
+  </div>
+</nav>
 
-              <div class="contact-card">
-                <div class="contact-card-icon">📧</div>
-                <div>
-                  <h4>Email Address</h4>
-                  <a href="mailto:info@selbyuniqueschool.edu.gh"
-                    >info@selbyuniqueschool.edu.gh</a
-                  ><br />
-                  <a href="mailto:admissions@selbyuniqueschool.edu.gh"
-                    >admissions@selbyuniqueschool.edu.gh</a
-                  >
-                </div>
-              </div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html">ℹ️ About</a>
+  <a href="academics.html">📚 Academics</a>
+  <a href="admission.html">📋 Admissions</a>
+  <a href="gallery.html">🖼️ Gallery</a>
+  <a href="contact.html">📞 Contact</a>
+  <a href="admission.html" class="mob-apply">📋 Apply Now</a>
+</nav>
 
-              <div class="contact-card">
-                <div class="contact-card-icon">📍</div>
-                <div>
-                  <h4>School Location</h4>
-                  <p>
-                    Selby Unique School<br />Ghana<br />(Contact us for the full
-                    address and directions)
-                  </p>
-                </div>
-              </div>
+  <!-- ===== PAGE HERO ===== -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span>Contact</span>
+      </div>
+      <h1>Contact Us</h1>
+      <p>We're here to help. Reach out to us anytime — we respond within 1 working day.</p>
+    </div>
+  </div>
 
-              <div class="contact-card">
-                <div class="contact-card-icon">⏰</div>
-                <div>
-                  <h4>Office Hours</h4>
-                  <p>
-                    Monday – Friday: 7:00 AM – 4:00 PM<br />Saturday: 9:00 AM –
-                    12:00 PM (by appointment)<br />Sunday: Closed
-                  </p>
-                </div>
-              </div>
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="bg-offwhite">
+    <div class="container">
+      <div class="contact-grid">
 
-              <div class="contact-card">
-                <div class="contact-card-icon">📘</div>
-                <div>
-                  <h4>Social Media</h4>
-                  <p>
-                    Find us on Facebook, WhatsApp, and Instagram for updates,
-                    news, and event photos.
-                  </p>
-                  <div style="display: flex; gap: 10px; margin-top: 10px">
-                    <a
-                      href="#"
-                      class="social-btn"
-                      style="background: var(--navy)"
-                      aria-label="Facebook"
-                      >📘</a
-                    >
-                    <a
-                      href="#"
-                      class="social-btn"
-                      style="background: var(--navy)"
-                      aria-label="WhatsApp"
-                      >💬</a
-                    >
-                    <a
-                      href="#"
-                      class="social-btn"
-                      style="background: var(--navy)"
-                      aria-label="Instagram"
-                      >📸</a
-                    >
-                  </div>
-                </div>
+        <!-- Left: Contact Info -->
+        <div>
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title" style="font-size:2rem;margin-bottom:12px">We'd Love to Hear From You</h2>
+          <p style="margin-bottom:32px">Whether you have a question about admissions, school fees, curriculum, or just want to schedule a visit — our team is ready to help.</p>
+
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-card-icon">📞</div>
+              <div>
+                <h4>Phone / WhatsApp</h4>
+                <a href="tel:+233000000000">+233 000 000 000</a><br>
+                <a href="tel:+233000000001">+233 000 000 001</a>
+                <p style="margin-top:4px;font-size:0.8rem">Mon – Fri: 7:00 AM – 4:00 PM</p>
               </div>
             </div>
 
-            <!-- Map placeholder -->
-            <div class="map-box" style="margin-top: 28px">
-              <div class="map-icon">📍</div>
+            <div class="contact-card">
+              <div class="contact-card-icon">📧</div>
               <div>
-                <strong style="color: rgba(255, 255, 255, 0.7)"
-                  >Map coming soon</strong
-                >
-                <p
-                  style="
-                    color: rgba(255, 255, 255, 0.4);
-                    font-size: 0.8rem;
-                    margin-top: 4px;
-                  "
-                >
-                  Call or email us for directions to the school
-                </p>
+                <h4>Email Address</h4>
+                <a href="/cdn-cgi/l/email-protection#543d3a323b14273138362d213a3d25213127373c3b3b387a3130217a333c"><span class="__cf_email__" data-cfemail="bad3d4dcd5fac9dfd6d8c3cfd4d3cbcfdfc9d9d2d5d5d694dfdecf94ddd2">[email&#160;protected]</span></a><br>
+                <a href="/cdn-cgi/l/email-protection#c0a1a4ada9b3b3a9afaeb380b3a5aca2b9b5aea9b1b5a5b3a3a8afafaceea5a4b5eea7a8"><span class="__cf_email__" data-cfemail="d1b0b5bcb8a2a2b8bebfa291a2b4bdb3a8a4bfb8a0a4b4a2b2b9bebebdffb4b5a4ffb6b9">[email&#160;protected]</span></a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-card-icon">📍</div>
+              <div>
+                <h4>School Location</h4>
+                <p>Selby Unique School<br>Ghana<br>(Contact us for the full address and directions)</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-card-icon">⏰</div>
+              <div>
+                <h4>Office Hours</h4>
+                <p>Monday – Friday: 7:00 AM – 4:00 PM<br>Saturday: 9:00 AM – 12:00 PM (by appointment)<br>Sunday: Closed</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-card-icon">📘</div>
+              <div>
+                <h4>Social Media</h4>
+                <p>Find us on Facebook, WhatsApp, and Instagram for updates, news, and event photos.</p>
+                <div style="display:flex;gap:10px;margin-top:10px">
+                  <a href="#" class="social-btn" style="background:var(--navy)" aria-label="Facebook">📘</a>
+                  <a href="#" class="social-btn" style="background:var(--navy)" aria-label="WhatsApp">💬</a>
+                  <a href="#" class="social-btn" style="background:var(--navy)" aria-label="Instagram">📸</a>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Right: Contact Form -->
-          <div>
-            <div
-              class="form-wrap"
-              style="
-                box-shadow: none;
-                background: var(--white);
-                border: 2px solid var(--light-gray);
-              "
-            >
-              <h3 class="form-title">Send Us a Message</h3>
-              <p class="form-sub">
-                Fill in the form and we'll get back to you within 1 working day.
-              </p>
+          <!-- Map placeholder -->
+          <div class="map-box" style="margin-top:28px">
+            <div class="map-icon">📍</div>
+            <div>
+              <strong style="color:rgba(255,255,255,0.7)">Map coming soon</strong>
+              <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-top:4px">Call or email us for directions to the school</p>
+            </div>
+          </div>
+        </div>
 
-              <!--
+        <!-- Right: Contact Form -->
+        <div>
+          <div class="contact-form-panel">
+            <h3 class="form-title">Send Us a Message</h3>
+            <p class="form-sub">Fill in the form and we'll get back to you within 1 working day.</p>
+
+            <!--
               HOW TO ACTIVATE THIS FORM:
               1. Go to https://formspree.io
               2. Create a free account
@@ -202,291 +153,150 @@
               5. Replace YOUR_FORM_ID below with your actual Form ID
               Example: action="https://formspree.io/f/xyzabcde"
             -->
-              <form
-                id="contactForm"
-                action="https://formspree.io/f/YOUR_FORM_ID"
-                method="POST"
-              >
-                <div class="form-grid">
-                  <div class="form-group">
-                    <label for="cName">Your Full Name *</label>
-                    <input
-                      type="text"
-                      id="cName"
-                      name="Full Name"
-                      required
-                      placeholder="e.g. Kwesi Agyeman"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="cPhone">Phone Number *</label>
-                    <input
-                      type="tel"
-                      id="cPhone"
-                      name="Phone Number"
-                      required
-                      placeholder="e.g. 024 000 0000"
-                    />
-                  </div>
-                  <div class="form-group full">
-                    <label for="cEmail">Email Address</label>
-                    <input
-                      type="email"
-                      id="cEmail"
-                      name="Email Address"
-                      placeholder="e.g. you@email.com"
-                    />
-                  </div>
-                  <div class="form-group full">
-                    <label for="cSubject">Subject / Topic *</label>
-                    <select id="cSubject" name="Subject" required>
-                      <option value="">
-                        -- What is your message about? --
-                      </option>
-                      <option value="Admissions Enquiry">
-                        Admissions Enquiry
-                      </option>
-                      <option value="School Fees">School Fees</option>
-                      <option value="Academic Programmes">
-                        Academic Programmes
-                      </option>
-                      <option value="Schedule a Visit">
-                        Schedule a School Visit
-                      </option>
-                      <option value="Transfer Request">
-                        Transfer from Another School
-                      </option>
-                      <option value="Parent Concern">
-                        Parent Concern / Feedback
-                      </option>
-                      <option value="Job Application">
-                        Job / Employment Enquiry
-                      </option>
-                      <option value="General Question">General Question</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-                  <div class="form-group full">
-                    <label for="cMessage">Your Message *</label>
-                    <textarea
-                      id="cMessage"
-                      name="Message"
-                      required
-                      placeholder="Type your message here. How can we help you?"
-                      style="min-height: 160px"
-                    ></textarea>
-                  </div>
+            <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="cName">Your Full Name *</label>
+                  <input type="text" id="cName" name="Full Name" required placeholder="e.g. Kwesi Agyeman" />
                 </div>
-
-                <div class="form-submit">
-                  <button
-                    type="submit"
-                    class="btn btn-primary"
-                    style="
-                      min-width: 200px;
-                      font-size: 1rem;
-                      padding: 16px 40px;
-                    "
-                  >
-                    📨 Send Message
-                  </button>
-                  <div class="form-note">
-                    We typically respond within 1 working day. For urgent
-                    matters, please call us directly.
-                  </div>
+                <div class="form-group">
+                  <label for="cPhone">Phone Number *</label>
+                  <input type="tel" id="cPhone" name="Phone Number" required placeholder="e.g. 024 000 0000" />
                 </div>
-
-                <div class="success-msg" id="contactSuccess">
-                  ✅ <strong>Message Sent Successfully!</strong><br />
-                  Thank you for contacting Selby Unique School. We have received
-                  your message and will get back to you within 1 working day. If
-                  you need an urgent response, please call us directly.
+                <div class="form-group full">
+                  <label for="cEmail">Email Address</label>
+                  <input type="email" id="cEmail" name="Email Address" placeholder="e.g. you@email.com" />
                 </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== QUICK CONTACT CARDS ===== -->
-    <section>
-      <div class="container">
-        <div class="text-center">
-          <span class="section-label">Departments</span>
-          <h2 class="section-title">Who Should You Contact?</h2>
-          <p class="section-sub">
-            Reach the right person for your query with these department
-            contacts.
-          </p>
-        </div>
-        <div class="grid-3">
-          <div class="feature-card">
-            <span class="feature-icon">📋</span>
-            <h3>Admissions Office</h3>
-            <p>
-              For new student applications, enrolment enquiries, age
-              requirements, and school visits. Open weekdays during school
-              hours.
-            </p>
-            <a
-              href="admissions.html"
-              style="
-                display: inline-block;
-                margin-top: 16px;
-                color: var(--gold);
-                font-weight: 600;
-                font-size: 0.88rem;
-              "
-              >View Admissions →</a
-            >
-          </div>
-          <div class="feature-card">
-            <span class="feature-icon">📚</span>
-            <h3>Academic Affairs</h3>
-            <p>
-              For questions about the GES curriculum, subject offerings,
-              examinations, class transfers, and academic reports.
-            </p>
-            <a
-              href="academics.html"
-              style="
-                display: inline-block;
-                margin-top: 16px;
-                color: var(--gold);
-                font-weight: 600;
-                font-size: 0.88rem;
-              "
-              >View Academics →</a
-            >
-          </div>
-          <div class="feature-card">
-            <span class="feature-icon">💰</span>
-            <h3>Accounts / Finance</h3>
-            <p>
-              For school fees, payment schedules, receipts, and any financial
-              matters related to your child's enrolment at our school.
-            </p>
-            <a
-              href="contact.html#contactForm"
-              style="
-                display: inline-block;
-                margin-top: 16px;
-                color: var(--gold);
-                font-weight: 600;
-                font-size: 0.88rem;
-              "
-              >Contact Us →</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA ===== -->
-    <section class="cta-section">
-      <div class="container">
-        <h2>Ready to Enrol Your Child?</h2>
-        <p>
-          Don't wait — admissions are open now. Apply online or visit us at the
-          school today.
-        </p>
-        <div class="cta-buttons">
-          <a href="admissions.html" class="btn btn-navy"
-            >📋 Apply for Admission</a
-          >
-          <a
-            href="tel:+233000000000"
-            class="btn"
-            style="border: 2px solid var(--navy); color: var(--navy)"
-            >📞 Call Us Now</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="nav-logo">
-              <div class="logo-icon">S</div>
-              <div class="logo-text">
-                <span class="school-name">Selby Unique School</span>
-                <span class="school-tag">Ghana</span>
+                <div class="form-group full">
+                  <label for="cSubject">Subject / Topic *</label>
+                  <select id="cSubject" name="Subject" required>
+                    <option value="">-- What is your message about? --</option>
+                    <option value="Admissions Enquiry">Admissions Enquiry</option>
+                    <option value="School Fees">School Fees</option>
+                    <option value="Academic Programmes">Academic Programmes</option>
+                    <option value="Schedule a Visit">Schedule a School Visit</option>
+                    <option value="Transfer Request">Transfer from Another School</option>
+                    <option value="Parent Concern">Parent Concern / Feedback</option>
+                    <option value="Job Application">Job / Employment Enquiry</option>
+                    <option value="General Question">General Question</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label for="cMessage">Your Message *</label>
+                  <textarea id="cMessage" name="Message" required placeholder="Type your message here. How can we help you?" style="min-height:160px"></textarea>
+                </div>
               </div>
-            </div>
-            <p class="footer-desc">
-              Delivering quality GES-aligned education from Crèche to Junior
-              High School.
-            </p>
-            <p
-              style="
-                font-size: 0.82rem;
-                color: rgba(255, 255, 255, 0.35);
-                font-style: italic;
-              "
-            >
-              Motto: "Christ Our Redeemer"
-            </p>
-            <div class="footer-social">
-              <a href="#" class="social-btn" aria-label="Facebook">📘</a>
-              <a href="#" class="social-btn" aria-label="WhatsApp">💬</a>
-              <a href="#" class="social-btn" aria-label="Instagram">📸</a>
-            </div>
+
+              <div class="form-submit">
+                <button type="submit" class="btn btn-primary" style="min-width:200px;font-size:1rem;padding:16px 40px">
+                  📨 Send Message
+                </button>
+                <div class="form-note">We typically respond within 1 working day. For urgent matters, please call us directly.</div>
+              </div>
+
+              <div class="success-msg" id="contactSuccess">
+                ✅ <strong>Message Sent Successfully!</strong><br>
+                Thank you for contacting Selby Unique School. We have received your message and will get back to you within 1 working day. If you need an urgent response, please call us directly.
+              </div>
+            </form>
           </div>
-          <div class="footer-col">
-            <h5>Quick Links</h5>
-            <ul>
-              <li><a href="index.html">🏠 Home</a></li>
-              <li><a href="about.html">ℹ️ About Us</a></li>
-              <li><a href="academics.html">📚 Academics</a></li>
-              <li><a href="admissions.html">📋 Admissions</a></li>
-              <li><a href="gallery.html">🖼️ Gallery</a></li>
-              <li><a href="contact.html">📞 Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>Academic Levels</h5>
-            <ul>
-              <li><a href="academics.html#creche">🍼 Crèche</a></li>
-              <li><a href="academics.html#kg">🌱 Kindergarten</a></li>
-              <li><a href="academics.html#primary">📖 Primary School</a></li>
-              <li><a href="academics.html#jhs">🎓 Junior High School</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>Contact Info</h5>
-            <div class="contact-line">
-              <span class="ci">📍</span><span>Ghana</span>
-            </div>
-            <div class="contact-line">
-              <span class="ci">📞</span
-              ><span><a href="tel:+233000000000">+233 000 000 000</a></span>
-            </div>
-            <div class="contact-line">
-              <span class="ci">📧</span
-              ><span
-                ><a href="mailto:info@selbyuniqueschool.edu.gh"
-                  >info@selbyuniqueschool.edu.gh</a
-                ></span
-              >
-            </div>
-            <div class="contact-line">
-              <span class="ci">⏰</span
-              ><span>Mon – Fri: 7:00 AM – 4:00 PM</span>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span>© 2025 Selby Unique School, Ghana. All rights reserved.</span>
-          <span>Designed with ❤️ for Ghana</span>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <button id="scrollTop" aria-label="Scroll to top">↑</button>
-    <script src="script.js"></script>
-  </body>
+  <!-- ===== QUICK CONTACT CARDS ===== -->
+  <section>
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Departments</span>
+        <h2 class="section-title">Who Should You Contact?</h2>
+        <p class="section-sub">Reach the right person for your query with these department contacts.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="feature-card">
+          <span class="feature-icon">📋</span>
+          <h3>Admissions Office</h3>
+          <p>For new student applications, enrolment enquiries, age requirements, and school visits. Open weekdays during school hours.</p>
+          <a href="admission.html" style="display:inline-block;margin-top:16px;color:var(--gold);font-weight:600;font-size:0.88rem">View Admissions →</a>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📚</span>
+          <h3>Academic Affairs</h3>
+          <p>For questions about the GES curriculum, subject offerings, examinations, class transfers, and academic reports.</p>
+          <a href="academics.html" style="display:inline-block;margin-top:16px;color:var(--gold);font-weight:600;font-size:0.88rem">View Academics →</a>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">💰</span>
+          <h3>Accounts / Finance</h3>
+          <p>For school fees, payment schedules, receipts, and any financial matters related to your child's enrolment at our school.</p>
+          <a href="contact.html#contactForm" style="display:inline-block;margin-top:16px;color:var(--gold);font-weight:600;font-size:0.88rem">Contact Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Enrol Your Child?</h2>
+      <p>Don't wait — admissions are open now. Apply online or visit us at the school today.</p>
+      <div class="cta-buttons">
+        <a href="admission.html" class="btn btn-navy">📋 Apply for Admission</a>
+        <a href="tel:+233000000000" class="btn" style="border:2px solid var(--navy);color:var(--navy)">📞 Call Us Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="logo-icon">S</div>
+            <div class="logo-text">
+              <span class="school-name">Selby Unique School</span>
+              <span class="school-tag">Ghana</span>
+            </div>
+          </div>
+          <p class="footer-desc">Delivering quality GES-aligned education from Crèche to Junior High School.</p>
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.35);font-style:italic">Motto: "Christ Our Redeemer"</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+            <a href="#" class="social-btn" aria-label="WhatsApp">💬</a>
+            <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="about.html">ℹ️ About Us</a></li>
+            <li><a href="academics.html">📚 Academics</a></li>
+            <li><a href="admission.html">📋 Admissions</a></li>
+            <li><a href="gallery.html">🖼️ Gallery</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Academic Levels</h5>
+          <ul>
+            <li><a href="academics.html#creche">🍼 Crèche</a></li>
+            <li><a href="academics.html#kg">🌱 Kindergarten</a></li>
+            <li><a href="academics.html#primary">📖 Primary School</a></li>
+            <li><a href="academics.html#jhs">🎓 Junior High School</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Info</h5>
+          <div class="contact-line"><span class="ci">📍</span><span>Ghana</span></div>
+          <div class="contact-line"><span class="ci">📞</span><span><a href="tel:+233000000000">+233 000 000 000</a></span></div>
+          <div class="contact-line"><span class="ci">📧</span><span><a href="/cdn-cgi/l/email-protection#b3daddd5dcf3c0d6dfd1cac6dddac2c6d6c0d0dbdcdcdf9dd6d7c69dd4db"><span class="__cf_email__" data-cfemail="9ff6f1f9f0dfecfaf3fde6eaf1f6eeeafaecfcf7f0f0f3b1fafbeab1f8f7">[email&#160;protected]</span></
+
+  <button id="scrollTop" aria-label="Scroll to top">↑</button>
+  <script src="script.js"></script>
+</body>
 </html>

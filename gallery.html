@@ -2,13 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta
       name="description"
       content="Selby Unique School Gallery – See school life, events, classrooms, sports, and activities at our Ghana school."
     />
     <title>Gallery – Selby Unique School</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>"
@@ -93,7 +96,7 @@
       .filter-btn {
         padding: 9px 20px;
         border-radius: 50px;
-        border: 2px solid var(--light-gray);
+        border: 2px solid var(--gray-light);
         background: var(--white);
         font-family: "DM Sans", sans-serif;
         font-size: 0.88rem;
@@ -130,29 +133,53 @@
     </style>
   </head>
   <body>
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar" id="navbar">
+    <!-- ═══════════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-          <div class="logo-icon">S</div>
+        <a
+          href="index.html"
+          class="nav-logo"
+          aria-label="Selby Unique School – home"
+        >
+          <div class="logo-icon" aria-hidden="true">S</div>
           <div class="logo-text">
             <span class="school-name">Selby Unique School</span>
             <span class="school-tag">Ghana</span>
           </div>
         </a>
-        <button class="hamburger" aria-label="Toggle menu" id="hamburger">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links" id="navLinks">
+
+        <div class="nav-links">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="academics.html">Academics</a>
-          <a href="admissions.html">Admissions</a>
+          <a href="admission.html">Admissions</a>
           <a href="gallery.html">Gallery</a>
           <a href="contact.html">Contact</a>
-          <a href="admissions.html" class="btn btn-primary">Apply Now</a>
+          <a href="admission.html" class="btn btn-primary">Apply Now</a>
         </div>
+
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
+    </nav>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html">🏠 Home</a>
+      <a href="about.html">ℹ️ About</a>
+      <a href="academics.html">📚 Academics</a>
+      <a href="admission.html">📋 Admissions</a>
+      <a href="gallery.html">🖼️ Gallery</a>
+      <a href="contact.html">📞 Contact</a>
+      <a href="admission.html" class="mob-apply">📋 Apply Now</a>
     </nav>
 
     <!-- ===== PAGE HERO ===== -->
@@ -160,7 +187,7 @@
       <div class="container">
         <div class="breadcrumb">
           <a href="index.html">Home</a>
-          <span>/</span>
+          <span class="sep">/</span>
           <span>Gallery</span>
         </div>
         <h1>School Gallery</h1>
@@ -526,7 +553,7 @@
         <div class="cta-buttons">
           <a href="contact.html" class="btn btn-navy">📅 Schedule a Visit</a>
           <a
-            href="admissions.html"
+            href="admission.html"
             class="btn"
             style="border: 2px solid var(--navy); color: var(--navy)"
             >📋 Apply Now</a
@@ -572,7 +599,7 @@
               <li><a href="index.html">🏠 Home</a></li>
               <li><a href="about.html">ℹ️ About Us</a></li>
               <li><a href="academics.html">📚 Academics</a></li>
-              <li><a href="admissions.html">📋 Admissions</a></li>
+              <li><a href="admission.html">📋 Admissions</a></li>
               <li><a href="gallery.html">🖼️ Gallery</a></li>
               <li><a href="contact.html">📞 Contact</a></li>
             </ul>
@@ -598,8 +625,13 @@
             <div class="contact-line">
               <span class="ci">📧</span
               ><span
-                ><a href="mailto:info@selbyuniqueschool.edu.gh"
-                  >info@selbyuniqueschool.edu.gh</a
+                ><a
+                  href="/cdn-cgi/l/email-protection#157c7b737a55667079776c607b7c64607066767d7a7a793b7071603b727d"
+                  ><span
+                    class="__cf_email__"
+                    data-cfemail="422b2c242d0231272e203b372c2b33372731212a2d2d2e6c2726376c252a"
+                    >[email&#160;protected]</span
+                  ></a
                 ></span
               >
             </div>
@@ -615,23 +647,21 @@
         </div>
       </div>
     </footer>
-
-    <button id="scrollTop" aria-label="Scroll to top">↑</button>
-    <script src="script.js"></script>
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
     <script>
       // Gallery filter
       function filterGallery(category, btn) {
-        // Update active button
         document
           .querySelectorAll(".filter-btn")
           .forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
 
-        // Show/hide items
         document.querySelectorAll(".gallery-item").forEach((item) => {
           if (category === "all" || item.dataset.category === category) {
             item.style.display = "";
-            item.style.opacity = "1";
           } else {
             item.style.display = "none";
           }
@@ -648,20 +678,19 @@
       }
 
       function closeLightbox(event) {
+        const lightbox = document.getElementById("lightbox");
+
         if (
           !event ||
-          event.target === document.getElementById("lightbox") ||
-          event.currentTarget.tagName === "BUTTON"
+          event.target === lightbox ||
+          event.target.classList.contains("lightbox-close")
         ) {
-          document.getElementById("lightbox").classList.remove("open");
+          lightbox.classList.remove("open");
           document.body.style.overflow = "";
         }
       }
-
-      // Close on Escape key
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeLightbox();
-      });
     </script>
+    <button id="scrollTop" aria-label="Scroll to top">↑</button>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,168 +1,212 @@
-/* ============================================
-   SELBY UNIQUE SCHOOL — GLOBAL JAVASCRIPT
-   ============================================ */
+/* =========================================================
+   SELBY UNIQUE SCHOOL  —  script.js
+   ========================================================= */
 
-/* ---------- Navbar scroll effect ---------- */
-const navbar = document.querySelector(".navbar");
-function handleNavScroll() {
-  if (window.scrollY > 60) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
+/* ─── 1. NAVBAR  scroll tint ─────────────────────────────── */
+const navbar = document.getElementById("navbar");
+
+function syncNavbar() {
+  if (!navbar) return;
+  navbar.classList.toggle("scrolled", window.scrollY > 50);
 }
-window.addEventListener("scroll", handleNavScroll);
-handleNavScroll(); // run on load
+window.addEventListener("scroll", syncNavbar, { passive: true });
+syncNavbar();
 
-/* ---------- Mobile hamburger ---------- */
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-if (hamburger && navLinks) {
+/* ─── 2. HAMBURGER / mobile-nav ─────────────────────────── */
+const hamburger = document.getElementById("hamburger");
+const mobileNav = document.getElementById("mobileNav");
+
+if (hamburger && mobileNav) {
   hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("open");
-    navLinks.classList.toggle("open");
+    const opening = !mobileNav.classList.contains("open");
+    mobileNav.classList.toggle("open", opening);
+    hamburger.setAttribute("aria-expanded", String(opening));
+    document.body.style.overflow = opening ? "hidden" : "";
   });
-  // Close nav when a link is clicked
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      hamburger.classList.remove("open");
-      navLinks.classList.remove("open");
-    });
+
+  /* close on any internal link click */
+  mobileNav
+    .querySelectorAll("a")
+    .forEach((a) => a.addEventListener("click", closeMenu));
+
+  /* close when tapping outside the drawer */
+  document.addEventListener("click", (e) => {
+    if (
+      mobileNav.classList.contains("open") &&
+      !mobileNav.contains(e.target) &&
+      !hamburger.contains(e.target)
+    )
+      closeMenu();
+  });
+
+  /* close on Escape */
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileNav.classList.contains("open")) closeMenu();
   });
 }
 
-/* ---------- Scroll-to-top button ---------- */
-const scrollTopBtn = document.getElementById("scrollTop");
-if (scrollTopBtn) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      scrollTopBtn.classList.add("visible");
-    } else {
-      scrollTopBtn.classList.remove("visible");
-    }
-  });
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+function closeMenu() {
+  if (!mobileNav) return;
+  mobileNav.classList.remove("open");
+  hamburger.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
 }
 
-/* ---------- FAQ accordion ---------- */
+/* ─── 3. ACTIVE NAV LINK ────────────────────────────────── */
+(function markActive() {
+  const page = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-links a, .mobile-nav a").forEach((a) => {
+    const href = (a.getAttribute("href") || "").split("#")[0];
+    if (href === page || (page === "" && href === "index.html"))
+      a.classList.add("active");
+  });
+})();
+
+/* ─── 4. SCROLL-TO-TOP ──────────────────────────────────── */
+const scrollBtn = document.getElementById("scrollTop");
+if (scrollBtn) {
+  window.addEventListener(
+    "scroll",
+    () => {
+      scrollBtn.classList.toggle("visible", window.scrollY > 500);
+    },
+    { passive: true },
+  );
+  scrollBtn.addEventListener("click", () =>
+    window.scrollTo({ top: 0, behavior: "smooth" }),
+  );
+}
+
+/* ─── 5. FAQ ACCORDION ──────────────────────────────────── */
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
     const item = btn.closest(".faq-item");
     const isOpen = item.classList.contains("open");
-    // close all
     document
       .querySelectorAll(".faq-item.open")
       .forEach((el) => el.classList.remove("open"));
-    // open clicked if it was closed
     if (!isOpen) item.classList.add("open");
   });
 });
 
-/* ---------- Active nav link ---------- */
-(function setActiveLink() {
-  const links = document.querySelectorAll(".nav-links a");
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  links.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href === currentPage || (currentPage === "" && href === "index.html")) {
-      link.classList.add("active");
-    }
-  });
-})();
+/* ─── 6. INTERSECTION OBSERVER — fade-in ────────────────── */
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+  );
 
-/* ---------- Simple form handler (Formspree fallback feedback) ---------- */
+  document.querySelectorAll(".fade-in").forEach((el) => io.observe(el));
+}
+
+/* ─── 7. COUNTER ANIMATION ──────────────────────────────── */
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute("data-count"), 10);
+  const suffix = el.getAttribute("data-suffix") || "";
+  if (isNaN(target)) return;
+
+  const duration = 1400;
+  const startTime = performance.now();
+
+  (function tick(now) {
+    const p = Math.min((now - startTime) / duration, 1);
+    const ep = 1 - Math.pow(1 - p, 3); // ease-out cubic
+    el.textContent = Math.round(ep * target) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  })(startTime);
+}
+
+if ("IntersectionObserver" in window) {
+  const statsEl = document.querySelector(".hero-stats");
+  if (statsEl) {
+    const co = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          document.querySelectorAll("[data-count]").forEach(animateCounter);
+          co.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    co.observe(statsEl);
+  }
+}
+
+/* ─── 8. FORM HANDLING ──────────────────────────────────── */
 function setupForm(formId, successId) {
   const form = document.getElementById(formId);
-  const successBox = document.getElementById(successId);
+  const success = document.getElementById(successId);
   if (!form) return;
 
-  form.addEventListener("submit", async function (e) {
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn ? submitBtn.textContent : "";
+  form.addEventListener("submit", async (e) => {
+    const action = form.getAttribute("action") || "";
+    const isDemo = !action || action.includes("YOUR_FORM_ID");
 
-    // If form uses Formspree action, let browser handle it normally
-    // For demo / offline: show success message
-    const action = form.getAttribute("action");
-    if (!action || action.includes("YOUR_FORM_ID")) {
+    if (isDemo) {
       e.preventDefault();
-      if (submitBtn) {
-        submitBtn.textContent = "Sending…";
-        submitBtn.disabled = true;
+      const btn = form.querySelector('button[type="submit"]');
+      const orig = btn?.textContent ?? "";
+
+      if (btn) {
+        btn.textContent = "Sending…";
+        btn.disabled = true;
       }
-      await new Promise((r) => setTimeout(r, 1200));
-      if (submitBtn) {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+      await new Promise((r) => setTimeout(r, 1100));
+      if (btn) {
+        btn.textContent = orig;
+        btn.disabled = false;
       }
-      if (successBox) {
-        successBox.classList.add("show");
-        successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      if (success) {
+        success.classList.add("show");
+        success.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
       form.reset();
     }
-    // If a real Formspree ID is set, the form submits normally (browser redirect)
+    /* If a real Formspree action is present, let the browser handle submission */
   });
 }
 
 setupForm("admissionForm", "admissionSuccess");
 setupForm("contactForm", "contactSuccess");
 
-/* ---------- Counter animation ---------- */
-function animateCounters() {
-  document.querySelectorAll("[data-count]").forEach((el) => {
-    const target = parseInt(el.getAttribute("data-count"), 10);
-    let current = 0;
-    const step = Math.ceil(target / 60);
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      el.textContent = current + (el.getAttribute("data-suffix") || "");
-    }, 25);
+/* ─── 9. GALLERY FILTER ─────────────────────────────────── */
+window.filterGallery = function (category, btn) {
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach((b) => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+  document.querySelectorAll(".gallery-item").forEach((item) => {
+    item.style.display =
+      category === "all" || item.dataset.category === category ? "" : "none";
   });
-}
+};
 
-// Run counter when hero stats are visible
-const heroStats = document.querySelector(".hero-stats");
-if (heroStats) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) {
-        animateCounters();
-        observer.disconnect();
-      }
-    },
-    { threshold: 0.3 },
-  );
-  observer.observe(heroStats);
-}
+/* ─── 10. GALLERY LIGHTBOX ──────────────────────────────── */
+window.openLightbox = function (emoji, title, desc) {
+  const lb = document.getElementById("lightbox");
+  if (!lb) return;
+  document.getElementById("lightboxEmoji").textContent = emoji;
+  document.getElementById("lightboxCaption").textContent = title;
+  document.getElementById("lightboxSub").textContent = desc;
+  lb.classList.add("open");
+  document.body.style.overflow = "hidden";
+};
 
-/* ---------- Smooth entrance animations ---------- */
-const fadeEls = document.querySelectorAll(
-  ".card, .feature-card, .level-card, .contact-card, .mv-card, .value-card, .staff-card, .req-item",
-);
-if ("IntersectionObserver" in window) {
-  const fadeObs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = "1";
-          e.target.style.transform = "translateY(0)";
-          fadeObs.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
-
-  fadeEls.forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(20px)";
-    el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-    fadeObs.observe(el);
-  });
-}
+window.closeLightbox = function (e) {
+  const lb = document.getElementById("lightbox");
+  if (!lb) return;
+  const clickedOutside = !e || e.target === lb;
+  const clickedClose = e?.currentTarget?.classList?.contains("lightbox-close");
+  if (clickedOutside || clickedClose) {
+    lb.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+};
