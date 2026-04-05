@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Selby Unique School Gallery – See school life, events, classrooms, sports, and activities at our Ghana school."
+    />
+    <title>Gallery – Selby Unique School</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>"
+    />
+    <style>
+      /* Lightbox overlay */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.88);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox-content {
+        background: var(--navy);
+        border-radius: 16px;
+        width: 100%;
+        max-width: 500px;
+        overflow: hidden;
+        position: relative;
+      }
+      .lightbox-inner {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .lightbox-emoji {
+        font-size: 4rem;
+      }
+      .lightbox-caption {
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .lightbox-sub {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.85rem;
+        text-align: center;
+      }
+      /* Gallery tab filters */
+      .gallery-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      .filter-btn {
+        padding: 9px 20px;
+        border-radius: 50px;
+        border: 2px solid var(--light-gray);
+        background: var(--white);
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--gray);
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--navy);
+        border-color: var(--navy);
+        color: var(--white);
+      }
+      /* Colour palettes for placeholders */
+      .g-navy {
+        background: linear-gradient(135deg, #0b2545, #13406b);
+      }
+      .g-gold {
+        background: linear-gradient(135deg, #d4a017, #8a6010);
+      }
+      .g-purple {
+        background: linear-gradient(135deg, #7c3aed, #5b21b6);
+      }
+      .g-pink {
+        background: linear-gradient(135deg, #e84393, #c7006b);
+      }
+      .g-teal {
+        background: linear-gradient(135deg, #0d9488, #065f46);
+      }
+      .g-orange {
+        background: linear-gradient(135deg, #ea580c, #9a3600);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">S</div>
+          <div class="logo-text">
+            <span class="school-name">Selby Unique School</span>
+            <span class="school-tag">Ghana</span>
+          </div>
+        </a>
+        <button class="hamburger" aria-label="Toggle menu" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="academics.html">Academics</a>
+          <a href="admissions.html">Admissions</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+          <a href="admissions.html" class="btn btn-primary">Apply Now</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Gallery</span>
+        </div>
+        <h1>School Gallery</h1>
+        <p>
+          A glimpse into the vibrant life at Selby Unique School — classrooms,
+          events, sports, and more.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery-section">
+      <div class="container">
+        <!-- How to add photos note -->
+        <div
+          style="
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            border-radius: 12px;
+            padding: 24px 32px;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+          "
+        >
+          <div style="font-size: 2.5rem">📸</div>
+          <div>
+            <h4 style="color: var(--gold-lt); margin-bottom: 4px">
+              Adding Real Photos
+            </h4>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.65);
+                font-size: 0.88rem;
+                max-width: 600px;
+              "
+            >
+              To add real school photos: save your images in the
+              <strong style="color: white">/images</strong> folder, then replace
+              the gallery items below with
+              <code
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  padding: 2px 6px;
+                  border-radius: 4px;
+                  color: var(--gold-lt);
+                "
+                >&lt;img src="images/your-photo.jpg"&gt;</code
+              >. No coding skills needed — it's just like adding a photo to a
+              document!
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="gallery-filters">
+          <button
+            class="filter-btn active"
+            onclick="filterGallery('all', this)"
+          >
+            All Photos
+          </button>
+          <button
+            class="filter-btn"
+            onclick="filterGallery('classrooms', this)"
+          >
+            Classrooms
+          </button>
+          <button class="filter-btn" onclick="filterGallery('events', this)">
+            Events
+          </button>
+          <button class="filter-btn" onclick="filterGallery('sports', this)">
+            Sports
+          </button>
+          <button
+            class="filter-btn"
+            onclick="filterGallery('graduation', this)"
+          >
+            Graduation
+          </button>
+          <button
+            class="filter-btn"
+            onclick="filterGallery('activities', this)"
+          >
+            Activities
+          </button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Row 1 -->
+          <div
+            class="gallery-item wide g-navy"
+            data-category="classrooms"
+            onclick="
+              openLightbox(
+                '📖',
+                'Our Primary Classrooms',
+                'Well-equipped and colourful classrooms designed for focused learning',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">📖</div>
+              <div class="g-label">Our Primary Classrooms</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+          <div
+            class="gallery-item g-pink"
+            data-category="activities"
+            onclick="
+              openLightbox(
+                '🍼',
+                'Crèche Playtime',
+                'Happy children enjoying safe and stimulating activities',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">🍼</div>
+              <div class="g-label">Crèche Playtime</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+
+          <!-- Row 2 -->
+          <div
+            class="gallery-item g-gold"
+            data-category="graduation"
+            onclick="
+              openLightbox(
+                '🎓',
+                'Graduation Ceremony',
+                'Proud JHS graduates at our annual prize-giving ceremony',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">🎓</div>
+              <div class="g-label">Graduation Ceremony</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+          <div
+            class="gallery-item g-teal"
+            data-category="sports"
+            onclick="
+              openLightbox(
+                '⚽',
+                'Sports Day',
+                'Students competing in our annual inter-house sports day',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">⚽</div>
+              <div class="g-label">Sports Day</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+          <div
+            class="gallery-item g-purple"
+            data-category="events"
+            onclick="
+              openLightbox(
+                '🎉',
+                'Cultural Day',
+                'Celebrating Ghana\'s rich cultural heritage with traditional wear',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">🎉</div>
+              <div class="g-label">Cultural Day</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+
+          <!-- Row 3 -->
+          <div
+            class="gallery-item g-orange"
+            data-category="events"
+            onclick="
+              openLightbox(
+                '🎨',
+                'Arts & Craft Festival',
+                'Showcasing the creativity of our young artists',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">🎨</div>
+              <div class="g-label">Arts & Craft Festival</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+          <div
+            class="gallery-item wide g-teal"
+            data-category="classrooms"
+            onclick="
+              openLightbox(
+                '💻',
+                'ICT Laboratory',
+                'Students learning computer skills in our modern ICT lab',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">💻</div>
+              <div class="g-label">ICT Laboratory</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+
+          <!-- Row 4 -->
+          <div
+            class="gallery-item wide g-purple"
+            data-category="activities"
+            onclick="
+              openLightbox(
+                '📚',
+                'Library & Reading Hour',
+                'Quiet reading time builds literacy and a love for books',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">📚</div>
+              <div class="g-label">Library & Reading Hour</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+          <div
+            class="gallery-item g-navy"
+            data-category="graduation"
+            onclick="
+              openLightbox(
+                '🏆',
+                'Prize Giving Day',
+                'Rewarding outstanding academic achievements',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">🏆</div>
+              <div class="g-label">Prize Giving Day</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+
+          <!-- Row 5 -->
+          <div
+            class="gallery-item g-pink"
+            data-category="activities"
+            onclick="
+              openLightbox(
+                '🌱',
+                'KG Garden Activity',
+                'Kindergarten students learning about nature and plants',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">🌱</div>
+              <div class="g-label">KG Garden Activity</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+          <div
+            class="gallery-item g-gold"
+            data-category="sports"
+            onclick="
+              openLightbox(
+                '🏃',
+                'Athletics Meet',
+                'Our students competing in the inter-school athletics competition',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">🏃</div>
+              <div class="g-label">Athletics Meet</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+          <div
+            class="gallery-item g-orange"
+            data-category="events"
+            onclick="
+              openLightbox(
+                '🎤',
+                'Speech & Drama',
+                'Students performing at our end-of-year speech and drama event',
+              )
+            "
+          >
+            <div class="gallery-placeholder">
+              <div class="g-icon">🎤</div>
+              <div class="g-label">Speech & Drama</div>
+            </div>
+            <div class="gallery-overlay">🔍</div>
+          </div>
+        </div>
+
+        <!-- Add photos note -->
+        <div class="gallery-note">
+          <h4>📷 Share Your Moments With Us</h4>
+          <p>
+            Are you a parent with photos from school events? We'd love to
+            feature them in our gallery. Contact us via email or WhatsApp to
+            submit your photos.
+          </p>
+          <a
+            href="contact.html"
+            class="btn btn-navy"
+            style="margin-top: 16px; display: inline-flex"
+            >Send Us Photos</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+      <div class="lightbox-content">
+        <button
+          class="lightbox-close"
+          onclick="closeLightbox()"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+        <div class="lightbox-inner" id="lightboxInner">
+          <div class="lightbox-emoji" id="lightboxEmoji">📷</div>
+          <p style="color: rgba(255, 255, 255, 0.4); font-size: 0.85rem">
+            Photo placeholder — add real images to the /images folder
+          </p>
+        </div>
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption">Photo Title</div>
+      <div class="lightbox-sub" id="lightboxSub">Description</div>
+      <div
+        style="
+          color: rgba(255, 255, 255, 0.35);
+          font-size: 0.75rem;
+          margin-top: 4px;
+        "
+      >
+        Click anywhere outside to close
+      </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Want to Experience School Life?</h2>
+        <p>
+          Schedule a visit and see Selby Unique School in person. We'd love to
+          show you around!
+        </p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-navy">📅 Schedule a Visit</a>
+          <a
+            href="admissions.html"
+            class="btn"
+            style="border: 2px solid var(--navy); color: var(--navy)"
+            >📋 Apply Now</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="nav-logo">
+              <div class="logo-icon">S</div>
+              <div class="logo-text">
+                <span class="school-name">Selby Unique School</span>
+                <span class="school-tag">Ghana</span>
+              </div>
+            </div>
+            <p class="footer-desc">
+              Delivering quality GES-aligned education from Crèche to Junior
+              High School.
+            </p>
+            <p
+              style="
+                font-size: 0.82rem;
+                color: rgba(255, 255, 255, 0.35);
+                font-style: italic;
+              "
+            >
+              Motto: "Christ Our Redeemer"
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+              <a href="#" class="social-btn" aria-label="WhatsApp">💬</a>
+              <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="index.html">🏠 Home</a></li>
+              <li><a href="about.html">ℹ️ About Us</a></li>
+              <li><a href="academics.html">📚 Academics</a></li>
+              <li><a href="admissions.html">📋 Admissions</a></li>
+              <li><a href="gallery.html">🖼️ Gallery</a></li>
+              <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Academic Levels</h5>
+            <ul>
+              <li><a href="academics.html#creche">🍼 Crèche</a></li>
+              <li><a href="academics.html#kg">🌱 Kindergarten</a></li>
+              <li><a href="academics.html#primary">📖 Primary School</a></li>
+              <li><a href="academics.html#jhs">🎓 Junior High School</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Contact Info</h5>
+            <div class="contact-line">
+              <span class="ci">📍</span><span>Ghana</span>
+            </div>
+            <div class="contact-line">
+              <span class="ci">📞</span
+              ><span><a href="tel:+233000000000">+233 000 000 000</a></span>
+            </div>
+            <div class="contact-line">
+              <span class="ci">📧</span
+              ><span
+                ><a href="mailto:info@selbyuniqueschool.edu.gh"
+                  >info@selbyuniqueschool.edu.gh</a
+                ></span
+              >
+            </div>
+            <div class="contact-line">
+              <span class="ci">⏰</span
+              ><span>Mon – Fri: 7:00 AM – 4:00 PM</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 Selby Unique School, Ghana. All rights reserved.</span>
+          <span>Designed with ❤️ for Ghana</span>
+        </div>
+      </div>
+    </footer>
+
+    <button id="scrollTop" aria-label="Scroll to top">↑</button>
+    <script src="script.js"></script>
+    <script>
+      // Gallery filter
+      function filterGallery(category, btn) {
+        // Update active button
+        document
+          .querySelectorAll(".filter-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Show/hide items
+        document.querySelectorAll(".gallery-item").forEach((item) => {
+          if (category === "all" || item.dataset.category === category) {
+            item.style.display = "";
+            item.style.opacity = "1";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+
+      // Lightbox
+      function openLightbox(emoji, title, description) {
+        document.getElementById("lightboxEmoji").textContent = emoji;
+        document.getElementById("lightboxCaption").textContent = title;
+        document.getElementById("lightboxSub").textContent = description;
+        document.getElementById("lightbox").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox(event) {
+        if (
+          !event ||
+          event.target === document.getElementById("lightbox") ||
+          event.currentTarget.tagName === "BUTTON"
+        ) {
+          document.getElementById("lightbox").classList.remove("open");
+          document.body.style.overflow = "";
+        }
+      }
+
+      // Close on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+  </body>
+</html>
